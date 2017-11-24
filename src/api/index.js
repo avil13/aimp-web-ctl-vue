@@ -1,22 +1,28 @@
-import { VK } from './resources';
+import Vue from 'vue';
+import VueResource from 'vue-resource';
+import config from './../config';
 
-function getResponce(res) {
-    return res.data;
-}
+Vue.use(VueResource);
 
-export const vk = {
-    user(id) {
-        const data = Object.assign({}, {
-            user_ids: id,
-            fields: 'photo_50'
-        });
-        return VK.user({}, data).then(getResponce);
-    },
-    friends(id) {
-        const data = Object.assign({}, {
-            user_id: id,
-            fields: 'photo_50'
-        });
-        return VK.friends({}, data).then(getResponce);
-    }
+Vue.http.options.crossOrigin = true;
+Vue.http.options.credentials = true;
+
+Vue.http.interceptors.push((request, next) => {
+    // Здесь обрабатывается тело запроса
+    request.headers = request.headers || {};
+
+    next((response) => {
+        // При этом могут быть обработаны в соответствии с результатами
+        if (!response.ok && !request.no_warning) {
+            Vue.swal(response.statusText, response.bodyText, 'error');
+        }
+    });
+});
+
+export default (method, params) => {
+    const opt = Object.assign({}, params, {
+        action: method
+    });
+
+    return Vue.http.get(`${config.HOST}${config.API}`, opt).then((res) => res.data);
 };
