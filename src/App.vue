@@ -1,27 +1,43 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div id="app" class="container row flex-container">
+    <router-view class="router"/>
+
+    <controll-bar></controll-bar>
   </div>
 </template>
 
 <script>
+import ControllBar from '@/components/ControllBar';
+
 export default {
-  name: 'app'
+  name: 'app',
+    components: {
+        ControllBar
+    }
 };
 </script>
 
 <style lang="scss">
 @import './style/materialize-css/sass/materialize.scss';
-@import './style/material-icons.scss';
+@import './style/fonts/material-icons.scss';
 
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    * {
+        color: #666;
+    }
+    .flex-container {
+        display: box;
+        display: flex;
+        flex-direction: column;
+    }
+    .router {
+        height: calc(100vh - 128px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow-y: auto;
+    }
 }
 </style>

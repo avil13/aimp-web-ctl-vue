@@ -19,7 +19,7 @@ Vue.http.interceptors.push((request, next) => {
     });
 });
 
-export default (method, params) => {
+export default (method, params = {}) => {
     const opt = Object.assign({}, params, {
         action: method
     });
