@@ -22,10 +22,10 @@ export default {
 @import './style/fonts/material-icons.scss';
 
 
+* {
+    color: #666;
+}
 #app {
-    * {
-        color: #666;
-    }
     .flex-container {
         display: box;
         display: flex;

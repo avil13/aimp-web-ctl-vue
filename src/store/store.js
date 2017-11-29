@@ -13,10 +13,16 @@ export default new Vuex.Store({
     state: {
         song_current: '',
         playlist_crc: '',
-        list: [{
+        list: [
+            {
             name: 'Eric Clapton - Travelin Alone',
             length: '236559'
-          }]
+          },
+            {
+            name: 'Eric Clapton - Travelin Alone',
+            length: '236559'
+          }
+        ]
     },
     mutations: {
         song_current(state, str = '') {

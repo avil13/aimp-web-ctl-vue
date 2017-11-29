@@ -11,25 +11,32 @@
                 </button>
                 <button class="btn-flat">
                     <i class="material-icons">play_arrow</i>
+                    <!-- <i class="material-icons">pause</i> -->
                 </button>
                 <button class="btn-flat">
                     <i class="material-icons">skip_next</i>
                 </button>
+
+                <div class="right">
+                    <button class="btn-flat btn-w-min active">
+                        <i class="material-icons">repeat</i>
+                    </button>
+                    <button class="btn-flat btn-w-min">
+                        <i class="material-icons">shuffle</i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 
-
 <script>
 export default {
-  name: 'ControllBar',
-  data() {
-    return {
-      msg: 'Is a "ControlBar" component'
-    };
-  }
+    name: 'ControllBar',
+    data() {
+        return {};
+    }
 };
 </script>
 
@@ -48,5 +55,20 @@ export default {
 .card .card-content {
     padding: 4px 24px;
     border-radius: 0;
+}
+.btn-flat {
+    padding: 0 1.2rem;
+}
+.btn-w-min {
+    padding-right: .2rem;
+    padding-left: .2rem;
+}
+#app .btn-flat *
+{
+    color: #a2a2a2;
+}
+#app .btn-flat.active *
+{
+    color: #26a59a;
 }
 </style>
