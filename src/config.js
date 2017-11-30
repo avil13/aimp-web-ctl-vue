@@ -1,4 +1,4 @@
 export default {
     HOST: 'http://localhost',
-    API: '/'
+    API: ':38475/'
 };

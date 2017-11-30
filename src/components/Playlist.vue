@@ -1,9 +1,7 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="collection">
-                <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v" :num="i"></list-item>
-            </div>
+        <div class="collection">
+            <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v" :num="i"></list-item>
         </div>
     </div>
 </template>

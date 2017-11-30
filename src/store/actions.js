@@ -12,3 +12,12 @@ export default {
         });
     }
 };
+
+
+/*
+get_playlist_list
+get_song_current
+get_volume
+get_player_status
+get_playlist_crc
+*/
