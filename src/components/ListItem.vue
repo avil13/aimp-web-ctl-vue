@@ -1,6 +1,6 @@
 <template>
     <a v-bind:class="cls" class="collection-item" href="">
-        {{ opt.name }}
+        {{ opt.name }} <span class="right">{{ opt.length | t }}</span>
     </a>
 </template>
 

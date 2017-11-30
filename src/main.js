@@ -6,6 +6,8 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+require('./filters');
+
 Vue.config.productionTip = false;
 
 Vue.use(Vuex);

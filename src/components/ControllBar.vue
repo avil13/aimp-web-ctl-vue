@@ -4,8 +4,11 @@
             <div class="card-content">
                 <p class="range-field">
                     <input type="range" min="0" max="100" />
+                    <volume-component></volume-component>
                 </p>
-                <span class="card-title"> title </span>
+                <span class="card-title">
+                    title
+                </span>
                 <button class="btn-flat">
                     <i class="material-icons">skip_previous</i>
                 </button>
@@ -32,8 +35,13 @@
 
 
 <script>
+import VolumeComponent from './Volume.vue';
+
 export default {
     name: 'ControllBar',
+    components: {
+        VolumeComponent
+    },
     data() {
         return {};
     }
