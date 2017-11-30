@@ -1,6 +1,10 @@
 <template>
-    <div class="collection">
-        <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v" :num="i"></list-item>
+    <div class="container">
+        <div class="row">
+            <div class="collection">
+                <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v" :num="i"></list-item>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -11,9 +15,6 @@ export default {
     name: 'Playlist',
     components: {
         ListItem
-    },
-    data () {
-        return {};
     },
     computed: {
         list() {

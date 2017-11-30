@@ -1,45 +1,65 @@
 <template>
-<div class="volume right">
-    <div></div>
+<div>
+    <div v-bind:class="{volume_open: show}" class="volume volume_bottom volume_show-equalizer">
+        <div class="volume__holder"></div>
+        <div class="volume__control">
+            <div class="volume__bar">
+                <div class="d-slider-vert volume__slider">
+                    <input type="range" orient="vertical" value="20" min="0" max="100">
+                    <!-- <div class="d-slider-vert__track">
+                        <div class="d-slider-vert__filled" style="height: 100%;">
+                            <button class="d-slider-vert__drag" tabindex="-1"></button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div v-on:click="open" class="volume__btn">
+            <div class="volume__icon" title="Выключить звук [0]"></div>
+        </div>
+    </div>
 </div>
 </template>
 
 
 <script>
-// https://codepen.io/vsync/pen/sChzo
-// TODO: надо переделать, этот элемент не доступный
 export default {
   name: 'Volume',
   data() {
-    return {};
+    return {
+        show: true
+    };
+  },
+  methods: {
+      open() {
+          this.show = !this.show;
+      }
   }
 };
 </script>
 
 
 <style lang="scss">
-$w_vol: 10px;
-
-.volume, .volume > div{
-  display:inline-block;
-  position:relative;
-  border-style:solid;
-  border-width: $w_vol ($w_vol*3);
-  border-color:rgba(black,0) rgba(black,.1) rgba(black,.1) rgba(black,0);
-
-  > div{
-    position:absolute;
-    bottom: -$w_vol;
-    left:-($w_vol*3);
-    border-color:rgba(black,0) #333 #333 rgba(black,0);
-  }
-}
-
-// center the volume on screen
-// .volume{
-//   position:absolute;
-//   width:0; height:0;
-//   margin:auto;
-//   top:0; bottom:0; left:0; right:0;
-// }
+input[type=range][orient=vertical]{-webkit-writing-mode:bt-lr;-ms-writing-mode:bt-lr;writing-mode:bt-lr;-webkit-appearance:slider-vertical;}
+.d-slider-vert{display:block;position:relative;width:32px;height:136px;}
+.volume{-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:inline-block;position:relative;line-height:0;}
+.volume__btn{opacity:.4;position:relative;display:inline-block;cursor:pointer;}
+.volume__icon{position:relative;background:url(/static/volume.svg) center center no-repeat;background-position:0 0;display:inline-block;width:28px;height:28px;margin:6px;-webkit-box-sizing:border-box;box-sizing:border-box;}
+.volume__control{display:block;position:absolute;width:44px;height:198px;background:#fff;right:-2px;border:1px #e0e0e0 solid;border-radius:3px;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-box-shadow:0 15px 30px rgba(0, 0, 0, 0.2);box-shadow:0 15px 30px rgba(0, 0, 0, 0.2);opacity:0;z-index:-1;}
+.volume__control:after,.volume__control:before{display:block;position:absolute;content:"";width:0;height:0;border-style:solid;}
+.volume__control:before{right:16px;}
+.volume__control:after{right:18px;}
+.volume__bar{display:block;position:absolute;top:0;right:0;width:42px;height:100%;background:#f7f6f4;z-index:1;}
+.volume__slider.d-slider-vert{position:absolute;bottom:31px;left:50%;margin-left:-16px;}
+.volume__holder{display:none;position:absolute;width:100%;height:80px;left:0;}
+.volume_show-equalizer .volume__control{height:225px;}
+.volume_show-equalizer .volume__bar{bottom:37px;}
+.volume_open .volume__btn{opacity:1;}
+.volume_open .volume__control{opacity:1;z-index:10;}
+.volume_open .volume__holder{display:block;}
+.volume_bottom .volume__control{margin-bottom:65px;bottom:-500px;}
+.volume_bottom .volume__control:before{bottom:-6px;border-width:6px 6px 0 6px;border-color:#e0e0e0 transparent transparent transparent;}
+.volume_bottom .volume__control:after{bottom:-5px;border-width:5px 4px 0 4px;border-color:#f7f6f4 transparent transparent transparent;}
+.volume_bottom .volume__holder{bottom:0;}
+.volume_bottom.volume_open .volume__control{-webkit-animation:volume_bottom__expand 100ms ease-out;animation:volume_bottom__expand 100ms ease-out;bottom:10px;}
 </style>

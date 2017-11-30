@@ -1,16 +1,15 @@
 <template>
-  <div id="app" class="container row flex-container">
-    <router-view class="router"/>
-
-    <controll-bar></controll-bar>
-  </div>
+<div id="app">
+    <router-view class="router" tag="main"/>
+    <controll-bar tag="footer"></controll-bar>
+</div>
 </template>
 
 <script>
 import ControllBar from '@/components/ControllBar';
 
 export default {
-  name: 'app',
+    name: 'app',
     components: {
         ControllBar
     }
@@ -21,23 +20,15 @@ export default {
 @import './style/materialize-css/sass/materialize.scss';
 @import './style/fonts/material-icons.scss';
 
-
 * {
     color: #666;
 }
-#app {
-    .flex-container {
-        display: box;
-        display: flex;
-        flex-direction: column;
-    }
-    .router {
-        height: calc(100vh - 128px);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        overflow-y: auto;
-    }
+.router {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: calc(100vh - 150px);
+    overflow-y: auto;
 }
 </style>
