@@ -5,17 +5,12 @@
         <div class="volume__control">
             <div class="volume__bar">
                 <div class="d-slider-vert volume__slider">
-                    <input type="range" orient="vertical" value="20" min="0" max="100">
-                    <!-- <div class="d-slider-vert__track">
-                        <div class="d-slider-vert__filled" style="height: 100%;">
-                            <button class="d-slider-vert__drag" tabindex="-1"></button>
-                        </div>
-                    </div> -->
+                    <input class="slider-v" type="range" orient="vertical" value="20" min="0" max="100">
                 </div>
             </div>
         </div>
-        <div v-on:click="open" class="volume__btn">
-            <div class="volume__icon" title="Выключить звук [0]"></div>
+        <div role="button" v-on:click="open" class="volume__btn">
+            <div class="volume__icon"></div>
         </div>
     </div>
 </div>
@@ -27,7 +22,7 @@ export default {
   name: 'Volume',
   data() {
     return {
-        show: true
+        show: false
     };
   },
   methods: {
@@ -40,7 +35,12 @@ export default {
 
 
 <style lang="scss">
-input[type=range][orient=vertical]{-webkit-writing-mode:bt-lr;-ms-writing-mode:bt-lr;writing-mode:bt-lr;-webkit-appearance:slider-vertical;}
+input[type=range][orient=vertical].slider-v{
+    transform: rotate(270deg);
+    width: 130px;
+    left: -50px;
+    top: 60px;
+}
 .d-slider-vert{display:block;position:relative;width:32px;height:136px;}
 .volume{-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:inline-block;position:relative;line-height:0;}
 .volume__btn{opacity:.4;position:relative;display:inline-block;cursor:pointer;}
@@ -52,7 +52,7 @@ input[type=range][orient=vertical]{-webkit-writing-mode:bt-lr;-ms-writing-mode:b
 .volume__bar{display:block;position:absolute;top:0;right:0;width:42px;height:100%;background:#f7f6f4;z-index:1;}
 .volume__slider.d-slider-vert{position:absolute;bottom:31px;left:50%;margin-left:-16px;}
 .volume__holder{display:none;position:absolute;width:100%;height:80px;left:0;}
-.volume_show-equalizer .volume__control{height:225px;}
+.volume_show-equalizer .volume__control{height:176px;}
 .volume_show-equalizer .volume__bar{bottom:37px;}
 .volume_open .volume__btn{opacity:1;}
 .volume_open .volume__control{opacity:1;z-index:10;}

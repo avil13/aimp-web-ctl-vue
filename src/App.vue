@@ -31,4 +31,8 @@ export default {
     height: calc(100vh - 150px);
     overflow-y: auto;
 }
+
+input[type=range] {
+    border: none;
+}
 </style>
