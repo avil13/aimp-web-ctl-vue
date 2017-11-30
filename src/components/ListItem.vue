@@ -24,7 +24,7 @@ export default {
     },
     computed: {
         current() {
-            return this.$store.getters['song_current'];
+            return this.$store.getters['currentList/song_current'];
         }
     },
     methods: {

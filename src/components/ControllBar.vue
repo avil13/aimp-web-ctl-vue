@@ -47,7 +47,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    box-shadow: 0 -1px 8px 1px rgba(22,22,22,.4);
+    // box-shadow: 0 -1px 8px 1px rgba(22,22,22,.4);
 }
 .card {
     margin: 0;

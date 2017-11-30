@@ -29,7 +29,7 @@
 [] set_track_position
 [] set_custom_status
 [] set_song_play
-[] set_song_position
+[] set_song_position - меняем позицицю песни, и обновляем список песен
 [] set_custom_status
 [] set_player_status
 
@@ -44,3 +44,11 @@
 [] playlist_del_file
 [] playlist_queue_add
 [] playlist_queue_remove
+
+====
+
+get_track_position
+get_volume
+get_song_current
+get_player_status
+get_playlist_crc
