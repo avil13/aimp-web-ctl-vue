@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Playlist from '@/components/Playlist';
+import Playlist from '@/components/Playlist/Playlist';
 
 Vue.use(Router);
 

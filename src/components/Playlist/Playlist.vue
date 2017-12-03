@@ -1,8 +1,11 @@
 <template>
+<div class="container">
+
   <div class="collection">
      <Menu></Menu>
      <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v" :num="i"></list-item>
   </div>
+</div>
 </template>
 
 <script>
@@ -20,7 +23,7 @@ export default {
   },
   computed: {
       list() {
-          return this.$store.getters['list'];
+          return this.$store.getters['playlist_list'];
       }
   }
 };

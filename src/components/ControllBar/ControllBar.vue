@@ -51,7 +51,7 @@ export default {
 <style lang="scss">
 .page-footer {
     background-color: #fff;
-    box-shadow: 0 -2px 2px 2px rgba(0,0,0,.29);
+    box-shadow: 0 0 2px 2px rgba(0,0,0,.29);
     height: 150px;
     position: fixed;
     bottom: 0;
