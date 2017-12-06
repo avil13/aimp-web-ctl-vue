@@ -28,7 +28,7 @@
         left: 0;
         top: 0;
         right: 0;
-        height: calc(100vh - 160px);
+        height: calc(100vh - 130px);
         overflow-y: auto;
     }
 
