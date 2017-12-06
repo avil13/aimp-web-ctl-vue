@@ -64,6 +64,7 @@ export default {
       transform: translateX(-100%);
       transition: transform 0.5s linear;
       will-change: transform;
+      z-index: 100;
 
       .body-container {
         padding: 10px;
@@ -116,6 +117,7 @@ export default {
       z-index: 2;
       outline:none;
       will-change: transform;
+      z-index: 101;
       &:after,
       &:before { content: none; }
       &:focus{ outline:none; }
