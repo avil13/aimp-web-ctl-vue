@@ -7,8 +7,18 @@ Vue.filter('t', (val) => {
 
     const v = parseInt(val / 1000);
 
-    if (v > 3600) {
-        return parseInt(v / 3600) + ':' + parseInt(v / 60) + ':' + v % 60;
+    let min = parseInt((v % 3600) / 60);
+    if (min < 10) {
+        min = '0' + min;
     }
-    return parseInt(v / 60) + ':' + v % 60;
+
+    let sec = v % 60;
+    if (sec < 10) {
+        sec = '0' + sec;
+    }
+
+    if (v > 3600) {
+        return parseInt(v / 3600) + ':' + min + ':' + sec;
+    }
+    return min + ':' + sec;
 });

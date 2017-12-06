@@ -7,6 +7,9 @@ Vue.use(VueResource);
 Vue.http.options.crossOrigin = true;
 Vue.http.options.credentials = true;
 
+Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
+
+/*
 Vue.http.interceptors.push((request, next) => {
     // Здесь обрабатывается тело запроса
     request.headers = request.headers || {};
@@ -18,11 +21,11 @@ Vue.http.interceptors.push((request, next) => {
         }
     });
 });
+// */
 
 export default (method, params = {}) => {
     const opt = Object.assign({}, params, {
         action: method
     });
-
-    return Vue.http.get(`${config.HOST}${config.API}`, opt).then((res) => res.data);
+    return Vue.http.get(`${config.HOST}${config.API}`, {params: opt}).then((res) => res.data);
 };

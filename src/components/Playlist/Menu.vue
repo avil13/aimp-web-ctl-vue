@@ -1,7 +1,7 @@
 <template>
 <div>
       <div class="title-wrap">
-        <div role="banner" class="title">Мой лист</div>
+        <div role="banner" class="title">{{ title.name }}</div>
       </div>
 
   <div class="menu">
@@ -9,10 +9,7 @@
     <label class="button" for="menuButton"><span class="crocodile"></span></label>
     <div class="body">
       <div role="navigation" class="body-container">
-        <a class="link" href="">Один</a>
-        <a class="link" href="">Два</a>
-        <a class="link" href="">Три</a>
-        <a class="link" href="">Четыре</a>
+        <a @click.prevent="set_playlist(v)" v-for="v in playlist_list" v-bind:key="v.id" class="link" href="">{{name(v)}}</a>
       </div>
     </div>
   </div>
@@ -26,6 +23,25 @@ export default {
   name: 'Menu',
   data () {
     return {};
+  },
+  computed: {
+      playlist_list() {
+          return this.$store.getters['playlist_list'];
+      },
+      title() {
+          return this.$store.getters['current_playlist'] || {};
+      }
+  },
+  methods: {
+      name(val) {
+          return val.name;
+      },
+      set_playlist(v) {
+          this.$store.dispatch({
+              type: 'SET_PLAYLIST',
+              payload: v
+          });
+      }
   }
 };
 

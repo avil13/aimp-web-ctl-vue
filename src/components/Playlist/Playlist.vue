@@ -5,7 +5,7 @@
      <Menu></Menu>
      <div role="main">
          <div role="listbox" class="collection listbox">
-            <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v" :num="i"></list-item>
+            <list-item v-for="(v, i) in list" v-bind:key="i" :opt="v"></list-item>
          </div>
      </div>
   </div>
@@ -27,8 +27,11 @@ export default {
   },
   computed: {
       list() {
-          return this.$store.getters['playlist_list'];
+          return this.$store.getters['playlist_songs'];
       }
+  },
+  mounted() {
+      this.$store.dispatch({ type: 'GET_PLAYLIST_LIST' });
   }
 };
 </script>

@@ -12,12 +12,13 @@
 
 ***
 
-[-] get_playlist_list
+[v] get_playlist_list получаем список плейлистов далее выбираем первый и получаем список его песен
+[v] get_playlist_songs
+[] get_playlist_crc
+
 [] get_version_string
 [] get_version_number
 [] get_update_time - получение настроек обновления
-[] get_playlist_songs
-[] get_playlist_crc
 [-] get_player_status
 [] get_song_current
 [] get_volume
@@ -28,7 +29,7 @@
 [] set_volume
 [] set_track_position
 [] set_custom_status
-[] set_song_play
+[-] set_song_play
 [] set_song_position - меняем позицицю песни, и обновляем список песен
 [] set_custom_status
 [] set_player_status

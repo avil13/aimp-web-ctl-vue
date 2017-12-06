@@ -1,4 +1,6 @@
 export default {
     song_current: state => state.song_current,
-    playlist_list: state => state.playlist_list
+    current_playlist: state => state.current_playlist,
+    playlist_list: state => state.playlist_list,
+    playlist_songs: state => state.playlist_songs
 };

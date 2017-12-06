@@ -3,20 +3,21 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import App from './App';
-import router from './router';
+// import router from './router';
 import store from './store';
+import VueSweetalert2 from 'vue-sweetalert2';
 
 require('./filters');
-
 Vue.config.productionTip = false;
 
+Vue.use(VueSweetalert2);
 Vue.use(Vuex);
 
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  router,
+//   router,
   store,
   template: '<App/>',
   components: { App }
