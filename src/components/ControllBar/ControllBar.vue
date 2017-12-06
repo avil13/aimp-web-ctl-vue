@@ -3,13 +3,13 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <p class="range-field">
+                <div class="range-field">
                     <input type="range" min="0" max="100" />
+                </div>
+                <div class="volume-field">
+                    <div class="card-title">1 Eric Clapton - Travelin Alone</div>
                     <volume-component></volume-component>
-                </p>
-                <span class="card-title">
-                    title
-                </span>
+                </div>
                 <button class="btn-flat">
                     <i class="material-icons">skip_previous</i>
                 </button>
@@ -73,5 +73,19 @@ export default {
 #app .btn-flat.active *
 {
     color: #26a59a;
+}
+.volume-field {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.card-title {
+    font-size: 15px;
+    color: #000;
+}
+.btn-flat:first-of-type{
+    padding-left: 0;
 }
 </style>
