@@ -6,7 +6,6 @@
 </template>
 
 
-
 <script>
 export default {
     name: 'ListItem',
@@ -18,12 +17,19 @@ export default {
     },
     computed: {
         current() {
-            return this.$store.getters['currentList/song_current'];
+            return this.$store.getters['song_current'];
+        },
+        current_playlist() {
+            return this.$store.getters['current_playlist'];
         }
     },
     methods: {
         cls() {
-            return this.current.PlayingFile === this.opt.number ? 'active' : '';
+            debugger;
+            return 'active';
+            // return ((this.current.PlayingList ^ 0) === this.current_playlist.id) &&
+            // this.current.PlayingFile === this.opt.number
+            // ? 'active' : '';
         },
         set_song_play() {
             this.$store.dispatch({

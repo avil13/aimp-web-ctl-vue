@@ -16,5 +16,8 @@ export default {
     },
     playlist_crc(state, str = '') {
         state.playlist_crc = str;
+    },
+    song_current(state, val = {}) {
+        state.song_current = val;
     }
 };

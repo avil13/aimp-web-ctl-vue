@@ -44,6 +44,11 @@ export default {
             playlist: context.state.current_playlist.id,
             song: action.payload
         });
+    },
+    GET_SONG_CURRENT(context, action) {
+        return api('get_song_current').then(data => {
+            context.commit('song_current', data);
+        });
     }
 };
 

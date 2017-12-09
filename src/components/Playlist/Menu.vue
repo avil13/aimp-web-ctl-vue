@@ -1,50 +1,52 @@
 <template>
 <div>
-      <div class="title-wrap">
+    <div class="title-wrap">
         <div role="banner" class="title">{{ title.name }}</div>
-      </div>
-
-  <div class="menu">
-    <input role="menu" class="checkbox" type="checkbox" id="menuButton">
-    <label class="button" for="menuButton"><span class="crocodile"></span></label>
-    <div class="body">
-      <div role="navigation" class="body-container">
-        <a @click.prevent="set_playlist(v)" v-for="v in playlist_list" v-bind:key="v.id" class="link" href="">{{name(v)}}</a>
-      </div>
     </div>
-  </div>
-</div>
 
+    <div class="menu">
+        <input role="menu" class="checkbox" type="checkbox" id="menuButton" v-model="menuButton">
+        <label class="button" for="menuButton"><span class="crocodile"></span></label>
+        <div class="body">
+            <div role="navigation" class="body-container">
+                <a @click.prevent="set_playlist(v)" v-for="v in playlist_list" v-bind:key="v.id" class="link" href="">{{name(v)}}</a>
+            </div>
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
-
 export default {
-  name: 'Menu',
-  data () {
-    return {};
-  },
-  computed: {
-      playlist_list() {
-          return this.$store.getters['playlist_list'];
-      },
-      title() {
-          return this.$store.getters['current_playlist'] || {};
-      }
-  },
-  methods: {
-      name(val) {
-          return val.name;
-      },
-      set_playlist(v) {
-          this.$store.dispatch({
-              type: 'SET_PLAYLIST',
-              payload: v
-          });
-      }
-  }
+    name: 'Menu',
+    data () {
+        return {
+            menuButton: false
+        };
+    },
+    computed: {
+        playlist_list() {
+            return this.$store.getters['playlist_list'];
+        },
+        title() {
+            return this.$store.getters['current_playlist'] || {};
+        }
+    },
+    methods: {
+        name(val) {
+            return val.name;
+        },
+        set_playlist(v) {
+            this.$store.dispatch({
+                type: 'SET_PLAYLIST',
+                payload: v
+            })
+            .then(() => {
+                this.menuButton = false;
+            });
+        }
+    }
 };
-
 </script>
 
 <style lang="scss">
@@ -59,13 +61,12 @@ export default {
 
     .title {
       padding: 4px 10px;
+      font-weight: bold;
     }
 }
 
-  .menu {
-    display: -webkit-flex;
+.menu {
     display: flex;
-    -webkit-justify-content: space-between;
     justify-content: space-between;
     box-sizing: border-box;
 
@@ -85,15 +86,15 @@ export default {
       .body-container {
         padding: 10px;
         .link {
-          display: block;
-          color: rgb(38, 165, 154);
-          margin-bottom: 20px;
-          font-size: 15px;
+            display: block;
+            color: rgb(38, 165, 154);
+            margin-bottom: 20px;
+            font-size: 15px;
         }
-      }
     }
+}
 
-    .checkbox {
+.checkbox {
       position: absolute;
       left: -50px;
       &:checked + .button + .body{
@@ -134,10 +135,8 @@ export default {
       outline:none;
       will-change: transform;
       z-index: 101;
-      &:after,
       &:before { content: none; }
       &:focus{ outline:none; }
-
       & .crocodile,
       & .crocodile:before,
       & .crocodile:after {

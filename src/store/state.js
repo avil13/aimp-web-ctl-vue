@@ -1,8 +1,7 @@
 export default {
-    update_time: 10,
-    song_current: '',
-    playlist_crc: '',
+    song_current: {},
     current_playlist: null,
+    playlist_crc: '',
     playlist_list: [],
     playlist_songs: [],
     volume: 50,
@@ -12,5 +11,6 @@ export default {
         status: 'OK',
         RepeatFile: '0',
         RandomFile: '0'
-    }
+    },
+    update_time: 10
 };
