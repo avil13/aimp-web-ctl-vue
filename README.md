@@ -9,6 +9,8 @@
 
 [Vue-resource](https://github.com/pagekit/vue-resource)
 
+[Style of controls](http://nisnom.com/veb-razrabotki/effekt-kak-by-vdavlivayushhihsya-knopok-pri-nazhatii/)
+
 
 ***
 
